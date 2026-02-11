@@ -1,0 +1,47 @@
+/* Standard spacing and smooth transitions */
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; }
+
+#property-grid .card {
+    transition: transform 0.3s ease;
+}
+#property-grid .card:hover {
+    transform: translateY(-10px);
+}
+
+/* Mobile nav dropdown and styling */
+nav { position: relative; }
+
+@media (max-width: 767px) {
+    #nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0b3b66; /* blue-900 */
+        padding: 0.5rem 1rem;
+        z-index: 40;
+    }
+    #nav-links.mobile {
+        display: block;
+    }
+    #nav-links li {
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        padding: 0.6rem 0;
+        list-style: none;
+    }
+    #nav-links li:last-child { border-bottom: none; }
+    #nav-links a { display: block; color: #fff; padding: 0.25rem 0; }
+}
+
+/* Ensure property cards align details vertically and images scale responsively */
+#property-grid .card img { width: 100%; height: auto; object-fit: cover; }
+#property-grid .card > .p-4 { display: flex; flex-direction: column; gap: 0.5rem; }
+#property-grid .card > .p-4 button { margin-top: auto; }
+
+/* Details page tweaks */
+.property-meta { display: grid; grid-template-columns: 1fr; gap: 0.35rem; }
+@media (min-width: 768px) {
+    .property-meta { grid-template-columns: 1fr 1fr; }
+}
